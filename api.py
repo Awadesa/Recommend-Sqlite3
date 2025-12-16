@@ -45,48 +45,48 @@ def setup_database():
         );
     """)
     # Insert Data in database
-    # cr.execute(f"""
-    #     INSERT INTO products (name, category, color, style, size_available, price, description)
-    #     VALUES
-    #     ("T-shirt Cotton", "tshirt", "black", "casual", "M,L,XL", 6000, "comfortable cotton tshirt"),
-    #     ("Jeans Slim Fit", "pants", "blue", "streetwear", "30,32,34", 12000, "slim fit blue jeans"),
-    #     ("Formal Shirt", "shirt", "white", "formal", "L,XL", 8000, "white office shirt"),
-    #     ("Hoodie Classic", "hoodie", "black", "casual", "L,XL", 15000, "black warm hoodie");
-    # """)
-    # cr.execute(f"""
-    #         INSERT INTO users (name, gender, age, size_top, size_bottom, size_shoes,
-    #         favorite_colors, preferred_styles, preferred_categories, budget_min, budget_max)
-    #         VALUES
-    #         ("Sara", "female", 22, "M", "28", "38",
-    #         "white,pink,beige", "casual,classic", "dress,tshirt,skirt", 5000, 20000),
-    #
-    #         ("Yasir", "male", 30, "L", "34", "43",
-    #         "black,gray,olive", "streetwear,sport", "hoodie,pants,tshirt", 8000, 25000),
-    #
-    #         ("Omar", "male", 27, "M", "32", "42",
-    #         "blue,navy,white", "casual,formal", "shirt,pants,shoes", 6000, 30000),
-    #
-    #         ("Maha", "female", 35, "L", "30", "39",
-    #         "black,red,white", "formal,classic", "dress,blazer,shoes", 10000, 35000),
-    #
-    #         ("Lina", "female", 19, "S", "26", "37",
-    #         "pink,purple,white", "trendy,streetwear", "tshirt,hoodie,skirt", 3000, 15000),
-    #
-    #         ("Hussam", "male", 40, "XL", "36", "44",
-    #         "gray,black,navy", "formal,classic", "shirt,blazer,trousers", 15000, 50000),
-    #
-    #         ("Nour", "female", 28, "M", "29", "38",
-    #         "green,beige,white", "casual,natural", "tshirt,dress,skirt", 4000, 18000),
-    #
-    #         ("Khalid", "male", 24, "L", "32", "42",
-    #         "black,white,blue", "sport,streetwear", "tshirt,shoes,hoodie", 5000, 20000),
-    #
-    #         ("Hanin", "female", 31, "M", "28", "39",
-    #         "brown,black,white", "classic,formal", "dress,shirt,bag", 8000, 30000),
-    #
-    #         ("Fadi", "male", 26, "M", "31", "41",
-    #         "white,green,gray", "casual,classic", "tshirt,pants,shirt", 4000, 16000);
-    #     """)
+    cr.execute(f"""
+        INSERT INTO products (name, category, color, style, size_available, price, description)
+        VALUES
+        ("T-shirt Cotton", "tshirt", "black", "casual", "M,L,XL", 6000, "comfortable cotton tshirt"),
+        ("Jeans Slim Fit", "pants", "blue", "streetwear", "30,32,34", 12000, "slim fit blue jeans"),
+        ("Formal Shirt", "shirt", "white", "formal", "L,XL", 8000, "white office shirt"),
+        ("Hoodie Classic", "hoodie", "black", "casual", "L,XL", 15000, "black warm hoodie");
+    """)
+    cr.execute(f"""
+            INSERT INTO users (name, gender, age, size_top, size_bottom, size_shoes,
+            favorite_colors, preferred_styles, preferred_categories, budget_min, budget_max)
+            VALUES
+            ("Sara", "female", 22, "M", "28", "38",
+            "white,pink,beige", "casual,classic", "dress,tshirt,skirt", 5000, 20000),
+    
+            ("Yasir", "male", 30, "L", "34", "43",
+            "black,gray,olive", "streetwear,sport", "hoodie,pants,tshirt", 8000, 25000),
+    
+            ("Omar", "male", 27, "M", "32", "42",
+            "blue,navy,white", "casual,formal", "shirt,pants,shoes", 6000, 30000),
+    
+            ("Maha", "female", 35, "L", "30", "39",
+            "black,red,white", "formal,classic", "dress,blazer,shoes", 10000, 35000),
+    
+            ("Lina", "female", 19, "S", "26", "37",
+            "pink,purple,white", "trendy,streetwear", "tshirt,hoodie,skirt", 3000, 15000),
+    
+            ("Hussam", "male", 40, "XL", "36", "44",
+            "gray,black,navy", "formal,classic", "shirt,blazer,trousers", 15000, 50000),
+    
+            ("Nour", "female", 28, "M", "29", "38",
+            "green,beige,white", "casual,natural", "tshirt,dress,skirt", 4000, 18000),
+    
+            ("Khalid", "male", 24, "L", "32", "42",
+            "black,white,blue", "sport,streetwear", "tshirt,shoes,hoodie", 5000, 20000),
+    
+            ("Hanin", "female", 31, "M", "28", "39",
+            "brown,black,white", "classic,formal", "dress,shirt,bag", 8000, 30000),
+    
+            ("Fadi", "male", 26, "M", "31", "41",
+            "white,green,gray", "casual,classic", "tshirt,pants,shirt", 4000, 16000);
+        """)
 
 
     con.commit()
@@ -207,3 +207,4 @@ def get_recommendations(data: RecommendRequest):
     except Exception as e:
 
         raise HTTPException(status_code=400, detail=str(e))
+
