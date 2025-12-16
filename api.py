@@ -1,5 +1,3 @@
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
@@ -207,4 +205,5 @@ def get_recommendations(data: RecommendRequest):
             "recommendations": recs
         }
     except Exception as e:
+
         raise HTTPException(status_code=400, detail=str(e))
